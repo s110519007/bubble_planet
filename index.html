@@ -1,0 +1,528 @@
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+<meta charset="utf-8">
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+    
+    a {
+        display: block;
+        text-decoration: none;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    img {
+        width: 100%;
+        border: 0;
+        display: block;
+    }
+    
+    article,
+    main,
+    nav,
+    section {
+        display: block;
+    }
+    
+    body {
+        margin: 0;
+        background-color: #4d1572;
+        font-size: 14px;
+    }
+    
+    .sp--1260 {
+        position: relative;
+        z-index: 0;
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .sp--1260.icon_Home,
+    .sp--1260.gameicon {
+        z-index: auto;
+    }
+    /* 主視覺 */
+    /* ======================================== */
+    
+    .logo a,
+    .sp__visual a {
+        display: block;
+    }
+    
+    .logo {
+        position: absolute;
+        z-index: 1;
+        /* 調整logo位置 */
+        top: 9px;
+        left: 0;
+        width: 100%;
+        max-width: 160px;
+    }
+    /* 設定背景 */
+    
+    .sp__main {
+        background: url(topbg.jpg) center 0 no-repeat;
+    }
+    /* 設定前景 */
+    
+    .sp__visual {
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        background-color: #4d1572;
+    }
+    
+    .visual__anchor,
+    .visual__main,
+    .visual__nav {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    
+    .visual__anchor {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .visual__main a,
+    .visual__nav a {
+        flex-grow: 1;
+    }
+    /* 主視覺 */
+    
+    .visual__main {
+        height: 100%;
+    }
+    
+    .visual__main a:nth-child(1) {
+        flex-grow: 0;
+        width: 100%;
+        height: 78%;
+    }
+    
+    .visual__main a:nth-child(2) {
+        flex-grow: 0;
+        width: 100%;
+        height: 22%;
+    }
+    /* 自適應banner組 */
+    /* ======================================== */
+    
+    .banner__title {
+        height: 65px;
+        background: center top no-repeat;
+    }
+    
+    .banner__wrap {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .banner__item {
+        transition: all 0.3s;
+        margin: 0 auto;
+    }
+    
+    .banner__item img {
+        width: 100%;
+    }
+    /* ...............................................................4變2 */
+    
+    .bn-w3m2 .banner__item {
+        flex: 0 1 auto;
+    }
+    /* 設定點下去與hover動畫 */
+    
+    .bn-w3m2 .banner__item:hover,
+    .bn-w3m2 .banner__item:active {
+        /* 變大(>1時變大) */
+        /*transform: scale(1.05);*/
+        /* 亮度調亮(>100%時變亮) */
+        /*filter: brightness(115%);*/
+    }
+    /* note*/
+    /* ======================================== */
+    
+    .note {
+        /*font-size: 18px;*/
+        word-break: break-all;
+    }
+    
+    article.note {
+        background-color: #9a00dc;
+        font: normal 1.2em/1.5 '微軟正黑體', Arial;
+        color: #fff;
+        padding-bottom: 1%;
+        padding-top: 1%;
+        margin-top: 25px;
+        border-radius: 50px;
+    }
+    
+    .note hr {
+        background-color: #6c4216;
+        border-width: 0;
+        height: 8px;
+        width: 100%;
+        margin: 0 auto 10px auto;
+    }
+    
+    .note h2 {
+        font-size: 1.5em;
+        line-height: 1.5;
+        margin: 5px 0 5px 3%;
+        display: inline-block;
+        padding: 0 1%;
+    }
+    
+    .note p {
+        line-height: 1.5;
+        padding: 0 4%;
+    }
+    
+    .note ol,
+    .note ul {
+        padding: 0;
+        margin: auto;
+        margin: 0 6% 1%;
+        list-style: decimal;
+    }
+    
+    .note ul {
+        list-style: disc;
+    }
+    
+    .note table {
+        border: 1px solid #fff;
+        border-right: 0;
+        border-bottom: 0;
+        width: 70%;
+        margin: 1% 0;
+    }
+    
+    .note table td {
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        padding: 5px;
+        text-align: center;
+        color: #fff;
+    }
+    
+    .note table tr:first-child td,
+    .note ol table tr:first-child td {
+        text-align: center;
+        color: #fff;
+        white-space: nowrap;
+    }
+    
+    .note img {
+        width: 80%;
+        margin: 10px 0;
+    }
+    
+    .web {
+        display: block;
+    }
+    
+    .mobile {
+        display: none;
+    }
+    /*  動畫  */
+    .animate__wrap {
+        position: relative;
+        z-index: 2;
+    }
+    .animate__wrap .animate__obj--01 {
+    position: absolute;
+    top: 11.6vw;
+    left: 5vw;
+    width: 89%;
+    }
+    .animate__wrap .animate__obj--02 {
+    position: absolute;
+    top: 46vw;
+    left: 3vw;
+    width: 79%;
+    }
+
+    @media screen and (min-width: 960px) {
+        .animate__wrap .animate__obj--01 {
+	    position: absolute;
+		top: 111px;
+        left: calc(50% - 434px);
+        width: auto;
+        }
+        .animate__wrap .animate__obj--02 {
+	    position: absolute;
+		top: 445px;
+        left: calc(50% - 446px);
+        width: auto;
+        }
+    }
+
+    
+    @media screen and (max-width: 1024px) {
+        .logo {
+            width: 24%;
+            left: 2.5%;
+        }
+        /* 設定手機時一列2個 */
+        .bn-w3m2 .banner__item {
+            flex: 1 0 46%;
+            margin: 0 2%;
+        }
+        .bn-w3m2 .banner__item:first-child {
+            flex-basis: 92%;
+        }
+        .bn-w3m2 .banner__item:nth-child(2) {
+            flex-basis: 92%;
+        }
+        article.note {
+            margin-top: 1%;
+            font-size: 1rem;
+            border-radius: 0;
+        }
+        .note h2 {
+            margin-bottom: 2%;
+            font-size: 1.2rem;
+        }
+        .note ol {
+            margin-left: 9%;
+            margin-bottom: 3%;
+        }
+        .note table {
+            width: 100%;
+        }
+        .web {
+            display: none;
+        }
+        .mobile {
+            display: block;
+            /*background-color: #f6bb3e;*/
+        }
+    }
+
+        /* ...............................................................消失 */
+    
+    .hidden {
+        display: block;
+    }
+    
+    @media screen and (max-width: 1024px) {
+        .hidden {
+            display: none;
+        }
+    }
+    
+    .hidden-2 {
+        display: none;
+    }
+    
+    @media screen and (max-width: 1024px) {
+        .hidden-2 {
+            display: block;
+        }
+    }
+    .double__pinyin{
+        position: relative;
+    }
+    .double__pinyin .left__link,.double__pinyin .right__link{
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+    }
+    .double__pinyin .left__link{
+        left: 0;
+    }
+    .double__pinyin .right__link{
+        right: 0;
+    }
+</style>
+<div id="spWrap" class="sp__wallper">
+
+<!-- 動畫小物件 -->
+ 	  <div class="animate__wrap">
+
+<!-- 如果有多組物件，可以複製命名animate__obj--0{數字} css 也複製一份就可以一直往下生 -->
+        <img class="animate__animated animate__obj--01 animate__zoomInDown" src="title.png">
+        <img class="animate__animated animate__obj--02 animate__headShake animate__infinite animate__delay-1s" src="diolog.png">
+    </div>
+    <main class="sp__main">
+        <div class="sp--1260">
+            <!-- <a href="https://www.etmall.com.tw" class="logo"><img src="ehs-logo.png" alt="東森購物"></a> -->
+            <div class="sp__visual">
+                <ul>
+                <li><a href="https://www.etmall.com.tw"><img src="index_01.jpg"></a></li>
+                <li><img src="index_02.jpg"></li>
+                <li><img src="index_03.jpg"></li>
+                <li class="double__pinyin">
+                    <a href="#" class="left__link" alt="左連結"></a>
+                    <a href="#" class="right__link" alt="右連結"></a>
+                    <img src="640x145.png">
+                </li>
+                <li><img src="index_05.jpg"></li>
+                </ul>
+            </div>
+            <div class="web">
+                <section class="bn-w3m2">
+                    <ul class="banner__wrap">
+                        <li class="banner__item">
+                            <img src="games1.jpg">
+                        </li>
+                        <li class="banner__item">
+                            <img src="games2.jpg">
+                        </li>
+                        <li class="banner__item">
+                            <img src="games3.jpg">
+                        </li>
+                        <li class="banner__item">
+                            <img src="games4.jpg">
+                        </li>
+                        <li class="banner__item">
+                            <img src="games5.jpg">
+                        </li>
+                        <li class="banner__item">
+                            <img src="games6.jpg">
+                        </li>
+                        <li class="banner__item">
+                            <img src="games7.jpg">
+                        </li>
+                        <li class="banner__item">
+                            <img src="games8.jpg">
+                        </li>
+                        <li class="banner__item">
+                            <img src="games9.jpg">
+                        </li>
+                        <li class="banner__item">
+                            <img src="games10.jpg">
+                        </li>
+                        <li class="banner__item">
+                            <img src="games11.jpg">
+                        </li>
+                    </ul>
+                </section>
+                <img src="index_12.jpg">
+            </div>
+            <div class="mobile">
+                <a href="#"><img class="hidden-2" src="games2.jpg"></a>
+                <a href="#"><img src="games1.jpg"></a>
+                <a href="#"><img src="games3.jpg"></a>
+				<a href="#"><img src="games4-1.jpg"></a>
+				<a href="#"><img src="index_13.jpg"></a>
+                <img src="index_14.jpg">
+            </div>
+            <article class="note" id="note">
+                <h2>✮連續簽到立即抽✮</h2>
+                <p>活動時間：10/1上午00:00 -10/31下午23:59</p>
+                <p>活動期間每天簽到都能獲得東森幣，連續簽到【第5天】還能抽【禮物盒】，最高可獲得100枚東森幣！</p>
+                <ol>
+                    <li>連續簽到天數東森幣面額：</li>
+                    <table cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>天數</td>
+                            <td>幣值</td>
+                            <td>效期(至領取日起算)</td>
+                        </tr>
+                        <tr>
+                            <td>第一天</td>
+                            <td>10元</td>
+                            <td>4天</td>
+                        </tr>
+                        <tr>
+                            <td>第二天</td>
+                            <td>10元</td>
+                            <td>4天</td>
+                        </tr>
+                        <tr>
+                            <td>第三天</td>
+                            <td>10元</td>
+                            <td>4天</td>
+                        </tr>
+                        <tr>
+                            <td>第四天</td>
+                            <td>10元</td>
+                            <td>4天</td>
+                        </tr>
+                        <tr>
+                            <td>第五天</td>
+                            <td>禮物盒</td>
+                            <td>4天</td>
+                        </tr>
+                    </table>
+                    <li>東森幣效期：領取日起+4日。</li>
+                    <li>活動期間如未連續簽到，將回到第一天重新參與簽到活動。</li>
+                    <li>禮物盒開啟後可隨機獲得12枚至100枚不等數量東森幣。</li>
+                </ol>
+                <p>注意事項：</p>
+                <ol>
+                
+					
+<li>東森幣可於東森購物指定通路(不含森森購物網)消費時選擇使用，東森幣1 枚可折抵現金1元。</li>
+					
+<li>東森幣最高可折抵上限為商品應付金額之30%（惟得依特定商品、專案活動依個案進行可折抵幣數之調整，悉依結帳頁面(購物車)顯示或使用之系統設定為準），且有單筆上限金額為3,000，單日最高２萬的抵用限制。</li>
+	
+<li>結帳時若消費之商品可使用東森幣折抵，系統將自動從最接近有效期限之東森幣折抵(倘會員選擇以東森幣折抵消費金額者，則一律採全數折抵，會員無法選擇以部分東森幣折抵金額)，會員於購物車結帳時就能自動算出可使用的東森幣並進行折抵。</li>
+	
+<li>每次取得之東森幣依發送時間及該次活動規範，均有不同之有效期間，期限屆至，自動無效。</li>
+	
+<li>票券類（包含餐券／服務票券／禮券與提貨券等預付儲值商品）、apple系列商品、旅遊、保險及汽機車…等專案商品，無法使用東森幣折抵。</li>
+	
+<li>商品是否適用東森幣，依結帳頁面(購物車)顯示或使用之系統設定為準。</li>
+	
+<li>東森幣限折抵指定商品類別之折扣金額，恕無法折抵售後服務、賠償等相關費用，如：運費、安裝處理費、商品缺損賠償等費用。</li>
+	
+<li>折價券每券限使用單件商品一次，逾期視同自動作廢，訂單取消、退貨亦無法再次使用。加價購、服務性票券、汽機車、旅遊、保險、禮券、遊戲點數卡等專案商品，恕不適用本折價券。</li>
+	
+<li>凡商品置入購物車，未出現優惠折價券欄位或輸入折價券露出「不適用」，即代表此為專案商品，無法參加優惠折價活動。</li>
+	
+<li>東森購物網所發送之折價券可與折扣金或紅利金合併使用，並僅限於東森購物網網站購買商品時選擇使用。</li>
+	
+<li>折價券回饋屬於記名式優惠，禁止轉讓他人使用，亦不可要求轉換為現金。</li>
+	
+<li>東森幣之完整使用規則，請詳東森幣常見問題（東森購物網站會員服務/APP幫助中心→常見問題→東森幣常見問題）</li>
+	
+<li>東森購物網保有活動變更、修改或終止本活動之權力，如有異動，修改後之內容將公佈在東森購物網上。</li>
+	
+<li>實體獎項將於兌獎流程後16個工作天寄出。獎項詳細內容與規格以實物為準，獎項均不得轉換、轉讓或折換現金，中獎資格不可轉讓予第三人。領獎後獎品之使用與維護，東森購物概不負責，若因不可抗力因素造成贈品無法交件，東森購物可將贈品內容更換成等值商品做為替換。</li>
+	
+<li>實體獎項兌獎流程將由專人主動與得獎人聯繫。依稅法規定，若得獎人於東森購物兌換贈（獎）品金額達新台幣（下同）1,001元以上未達20,010元，將於次年初開立免扣繳憑單予得獎人並向主管稽徵機關申報。</li>
+
+              </ol>
+            </article>
+
+        </div>
+    </main>
+</div>
+<script src="https://media.etmall.com.tw/sp/12500/jquery-3.6.0.min.js"></script>
+<script>
+    $('a[href^="#"]').on('click', function(e) {
+        var target = $('a[name=' + this.getAttribute('href').split('#')[1] + ']');
+        if (target.length) {
+            e.preventDefault();
+            $('html,body').stop().animate({
+                scrollTop: target.offset().top
+            }, 500);
+        }
+    });
+</script>
+<!-- 浮水印 -->
+<script id="scriptIconFloat" src="https://www.etmall.com.tw/XML/content/DMSetting/Final/209901/SP_1105264/float-icon.js"></script>
+<!-- <script id="scriptIconFloat" src="https://www.u-mall.com.tw/XML/content/DMSetting/Final/209901/SP_1103045/float-icon.js"></script> -->
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <!-- 共用JS -->
+  <script id="generateScript" src="https://media.etmall.com.tw/sp/12500/generate_v1.2.js"></script>
